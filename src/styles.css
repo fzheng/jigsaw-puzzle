@@ -1,0 +1,279 @@
+:root {
+  font-family: "Segoe UI", "Inter", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f8fbff;
+  background-color: #05060a;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b1633, #05060a 70%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #ffabc7;
+  margin-bottom: 0.4rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 0.5rem;
+}
+
+.lede {
+  margin: 0;
+  max-width: 32rem;
+  color: #b6b8ce;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: #c5c7df;
+}
+
+select,
+button {
+  border-radius: 999px;
+  border: 1px solid #4b4f73;
+  background: #14162b;
+  color: #f8fbff;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+select:focus,
+button:focus,
+button:hover {
+  outline: none;
+  border-color: #7cf5ff;
+  transform: translateY(-1px);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1.5rem;
+}
+
+.puzzle-panel,
+.rankings-panel {
+  background: rgba(9, 9, 16, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.puzzle-headline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.puzzle-headline h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.puzzle-headline p {
+  margin: 0.2rem 0 0;
+  color: #b6b8ce;
+}
+
+.metrics {
+  display: flex;
+  gap: 1rem;
+  text-align: right;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #9799b6;
+}
+
+.metrics strong {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.puzzle-board {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  background: #05060a;
+  padding: 4px;
+  outline: none;
+}
+
+.puzzle-board:focus {
+  box-shadow: 0 0 0 3px rgba(124, 245, 255, 0.4);
+}
+
+.tile {
+  border: none;
+  border-radius: 12px;
+  background-color: #1f2036;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.35rem;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.tile:focus-visible {
+  outline: 2px solid #7cf5ff;
+}
+
+.tile span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(5, 6, 10, 0.7);
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+}
+
+.tile:not(.tile--empty):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tile--empty {
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.08) 10px,
+      rgba(255, 255, 255, 0.02) 10px,
+      rgba(255, 255, 255, 0.02) 20px
+    ),
+    #111222;
+  cursor: default;
+}
+
+.helper-text {
+  margin-top: 1rem;
+  color: #b6b8ce;
+  font-size: 0.95rem;
+}
+
+.success {
+  color: #7cf5ff;
+  font-weight: 600;
+}
+
+.rankings-panel h2 {
+  margin-top: 0;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ranking-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: rgba(20, 22, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.rank-index {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffabc7;
+}
+
+.ranking-list p {
+  margin: 0.15rem 0 0;
+  color: #a5a7c5;
+  font-size: 0.85rem;
+}
+
+.ranking-list time {
+  font-size: 0.8rem;
+  color: #7f83a8;
+}
+
+@media (max-width: 960px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  select,
+  button {
+    width: 100%;
+  }
+}
